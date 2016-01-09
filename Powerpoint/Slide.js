@@ -28,14 +28,17 @@ var __extends = (this && this.__extends) || function (d, b) {
             Slide.prototype.render = function () {
                 return this.renderSlide();
             };
+            Slide.prototype.deleteSlide = function () {
+                this.props.onDeleteHandler(this.props.id);
+            };
             Slide.prototype.renderSlide = function () {
                 switch (this.props.currentSlideType) {
                     case SlideOption.SlideTitle:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(ButtonDelete_1.default.ButtonDelete, null)));
-                    case SlideOption.TitleImg:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(SlideImg_1.default.SlideImg, null)));
+                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(ButtonDelete_1.default.ButtonDelete, {"onClickHandler": this.deleteSlide.bind(this), "name": "Delete"})));
                     case SlideOption.TitleText:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(SlideText_1.default.SlideText, null)));
+                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(SlideText_1.default.SlideText, null), React.createElement(ButtonDelete_1.default.ButtonDelete, {"onClickHandler": this.deleteSlide.bind(this), "name": "Delete"})));
+                    case SlideOption.TitleImg:
+                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(SlideImg_1.default.SlideImg, null), React.createElement(ButtonDelete_1.default.ButtonDelete, {"onClickHandler": this.deleteSlide.bind(this), "name": "Delete"})));
                     default:
                         throw ("Incorrect slide type");
                 }

@@ -26,8 +26,6 @@
     <TypeScriptCompile Include="App.tsx" />
     <TypeScriptCompile Include="ButtonDelete.tsx" />
     <Content Include="index.html" />
-    <TypeScriptCompile Include="Buttons.tsx" />
-    <Content Include="pp.html" />
     <Content Include="web.config" />
     <TypeScriptCompile Include="utils.ts" />
   </ItemGroup>
@@ -51,7 +49,6 @@
     <TypeScriptCompile Include="slideOptionEnum.ts" />
     <TypeScriptCompile Include="SlideText.tsx" />
     <TypeScriptCompile Include="SlideTitle.tsx" />
-    <TypeScriptCompile Include="PP.tsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="typings\" />

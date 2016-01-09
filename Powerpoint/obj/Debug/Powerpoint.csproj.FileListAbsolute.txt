@@ -15,3 +15,8 @@ E:\Florin\Powerpoint\Powerpoint\bin\Powerpoint.dll
 E:\Florin\Powerpoint\Powerpoint\bin\Powerpoint.pdb
 E:\Florin\Powerpoint\Powerpoint\obj\Debug\Powerpoint.dll
 E:\Florin\Powerpoint\Powerpoint\obj\Debug\Powerpoint.pdb
+E:\Florin\PwpC\Powerpoint\bin\Powerpoint.dll.config
+E:\Florin\PwpC\Powerpoint\bin\Powerpoint.dll
+E:\Florin\PwpC\Powerpoint\bin\Powerpoint.pdb
+E:\Florin\PwpC\Powerpoint\obj\Debug\Powerpoint.dll
+E:\Florin\PwpC\Powerpoint\obj\Debug\Powerpoint.pdb

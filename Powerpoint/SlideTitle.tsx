@@ -1,7 +1,5 @@
 /// <reference path="./typings/tsd.d.ts" />
 
-import Buttons from './Buttons';
-
 module SlideTitle {
     export interface SlideTitleProps {
        

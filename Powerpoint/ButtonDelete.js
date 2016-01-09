@@ -19,16 +19,9 @@ var __extends = (this && this.__extends) || function (d, b) {
             __extends(ButtonDelete, _super);
             function ButtonDelete() {
                 _super.apply(this, arguments);
-                this.state = {
-                    name: "Delete slide"
-                };
             }
-            ButtonDelete.prototype.deleteSlide = function () {
-                console.log("assaas");
-                this.setState({});
-            };
             ButtonDelete.prototype.render = function () {
-                return (React.createElement("div", null, React.createElement(Button_1.default.Button, {"name": "Delete slide", "onClickHandler": this.deleteSlide.bind(this)})));
+                return (React.createElement("div", null, React.createElement(Button_1.default.Button, {"onClickHandler": this.props.onClickHandler, "name": this.props.name})));
             };
             return ButtonDelete;
         })(Button_1.default.Button);

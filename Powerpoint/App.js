@@ -27,18 +27,34 @@ var __extends = (this && this.__extends) || function (d, b) {
                     slideList: []
                 };
             }
-            App.prototype.addSlide = function () {
+            App.prototype.addSlide = function (slideType) {
                 this.setState({
                     slideList: this.state.slideList.concat({
                         id: utils_1.default.Utils.uuid(),
-                        slydeType: 1
+                        slydeType: slideType
                     }) });
+            };
+            App.prototype.addTitleSlide = function () {
+                this.addSlide(SlideOption.SlideTitle);
+            };
+            App.prototype.addTextSlide = function () {
+                this.addSlide(SlideOption.TitleText);
+            };
+            App.prototype.addImgSlide = function () {
+                this.addSlide(SlideOption.TitleImg);
+            };
+            App.prototype.deleteSlide = function (id) {
+                this.setState({
+                    slideList: this.state.slideList.filter(function (obj) {
+                        return obj.id !== id;
+                    })
+                });
             };
             App.prototype.render = function () {
                 var slideItems = this.state.slideList.map(function (s) {
-                    return (React.createElement(Slide_1.default.Slide, {"key": s.id, "currentSlideType": SlideOption.SlideTitle}));
+                    return (React.createElement(Slide_1.default.Slide, {"key": s.id, "id": s.id, "currentSlideType": s.slydeType, "onDeleteHandler": this.deleteSlide.bind(this)}));
                 }, this);
-                return (React.createElement("div", null, React.createElement(Button_1.default.Button, {"name": "Click to add centered title", "onClickHandler": this.addSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Click to add title and image", "onClickHandler": this.addSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Click to add title and text", "onClickHandler": this.addSlide.bind(this)}), slideItems));
+                return (React.createElement("div", null, React.createElement(Button_1.default.Button, {"name": "Click to add centered title", "onClickHandler": this.addTitleSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Click to add title and text", "onClickHandler": this.addTextSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Click to add title and image", "onClickHandler": this.addImgSlide.bind(this)}), slideItems));
             };
             return App;
         })(React.Component);
