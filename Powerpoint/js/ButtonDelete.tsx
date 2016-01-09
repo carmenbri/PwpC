@@ -1,5 +1,6 @@
-﻿/// <reference path="./typings/tsd.d.ts" />
-import Button from './Button';
+﻿/// <reference path="../typings/tsd.d.ts" />
+
+import Button from 'Button';
 module ButtonDelete {
     export interface ButtonDeleteProps extends Button.ButtonProps {
     }

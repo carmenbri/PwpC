@@ -23,17 +23,17 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="App.tsx" />
-    <TypeScriptCompile Include="ButtonDelete.tsx" />
+    <TypeScriptCompile Include="js\App.tsx" />
+    <TypeScriptCompile Include="js\ButtonDelete.tsx" />
     <Content Include="index.html" />
     <Content Include="web.config" />
-    <TypeScriptCompile Include="utils.ts" />
+    <TypeScriptCompile Include="js\utils.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="package.json" />
     <Content Include="tsconfing.json" />
     <Content Include="tsd.json" />
-    <Content Include="style.css" />
+    <Content Include="css\style.css" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -42,13 +42,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Button.tsx" />
-    <TypeScriptCompile Include="interfaces.d.ts" />
-    <TypeScriptCompile Include="Slide.tsx" />
-    <TypeScriptCompile Include="SlideImg.tsx" />
-    <TypeScriptCompile Include="slideOptionEnum.ts" />
-    <TypeScriptCompile Include="SlideText.tsx" />
-    <TypeScriptCompile Include="SlideTitle.tsx" />
+    <TypeScriptCompile Include="js\Button.tsx" />
+    <TypeScriptCompile Include="js\interfaces.d.ts" />
+    <TypeScriptCompile Include="js\Slide.tsx" />
+    <TypeScriptCompile Include="js\SlideImg.tsx" />
+    <TypeScriptCompile Include="js\slideOptionEnum.ts" />
+    <TypeScriptCompile Include="js\SlideText.tsx" />
+    <TypeScriptCompile Include="js\SlideTitle.tsx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="typings\" />

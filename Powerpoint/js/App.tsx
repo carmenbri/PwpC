@@ -1,10 +1,10 @@
-﻿/// <reference path="./typings/tsd.d.ts" />
+﻿/// <reference path="../typings/tsd.d.ts" />
 
-import Button from './Button';
-import Slide from './Slide';
-import SlideOptionEnum from './slideOptionEnum'
+import Button from 'Button';
+import Slide from 'Slide';
+import SlideOptionEnum from 'slideOptionEnum'
 import SlideOption = SlideOptionEnum.SlideOption;
-import Utils from './utils';
+import Utils from 'utils';
 
 module App {
     interface AppProps {
@@ -14,7 +14,7 @@ module App {
         slideList: Array<ISlide>;
     }
 
-    export class App extends React.Component<AppProps, AppState> {
+    export class App extends React.Component<{}, AppState> {
         state = {
             slideList: []
         };

@@ -1,5 +1,6 @@
-﻿/// <reference path="./typings/tsd.d.ts" />
-import SlideTitle from './SlideTitle';
+﻿/// <reference path="../typings/tsd.d.ts" />
+
+import SlideTitle from 'SlideTitle';
 module SlideText {
     export interface SlideTextProps extends SlideTitle.SlideTitleProps {
         text?: string;
