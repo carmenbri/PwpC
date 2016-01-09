@@ -24,15 +24,18 @@ var __extends = (this && this.__extends) || function (d, b) {
             function App() {
                 _super.apply(this, arguments);
                 this.state = {
-                    slideList: []
+                    slideList: utils_1.default.Utils.store("PowerPointLS")
                 };
             }
             App.prototype.addSlide = function (slideType) {
+                var modifiedState = this.state.slideList.concat({
+                    id: utils_1.default.Utils.uuid(),
+                    slydeType: slideType
+                });
                 this.setState({
-                    slideList: this.state.slideList.concat({
-                        id: utils_1.default.Utils.uuid(),
-                        slydeType: slideType
-                    }) });
+                    slideList: modifiedState
+                });
+                utils_1.default.Utils.store("PowerPointLS", modifiedState);
             };
             App.prototype.addTitleSlide = function () {
                 this.addSlide(SlideOption.SlideTitle);
@@ -52,6 +55,7 @@ var __extends = (this && this.__extends) || function (d, b) {
             };
             App.prototype.render = function () {
                 var slideItems = this.state.slideList.map(function (s) {
+                    console.log(s.id);
                     return (React.createElement(Slide_1.default.Slide, {"key": s.id, "id": s.id, "currentSlideType": s.slydeType, "onDeleteHandler": this.deleteSlide.bind(this)}));
                 }, this);
                 return (React.createElement("div", null, React.createElement(Button_1.default.Button, {"name": "Click to add centered title", "onClickHandler": this.addTitleSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Click to add title and text", "onClickHandler": this.addTextSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Click to add title and image", "onClickHandler": this.addImgSlide.bind(this)}), slideItems));

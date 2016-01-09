@@ -16,14 +16,17 @@ module App {
 
     export class App extends React.Component<{}, AppState> {
         state = {
-            slideList: []
+            slideList: Utils.Utils.store("PowerPointLS")
         };
         public addSlide(slideType: SlideOption) {
+            var modifiedState = this.state.slideList.concat({
+                id: Utils.Utils.uuid(),
+                slydeType: slideType
+            });
             this.setState({
-                slideList: this.state.slideList.concat({
-                    id: Utils.Utils.uuid(),
-                    slydeType: slideType
-                }) });
+                slideList: modifiedState
+            });
+            Utils.Utils.store("PowerPointLS", modifiedState);
         }
         public addTitleSlide() {
             this.addSlide(SlideOption.SlideTitle);
@@ -44,6 +47,7 @@ module App {
 
         public render(): JSX.Element {
             var slideItems = this.state.slideList.map(function (s) {
+                console.log(s.id);
                 return (
                     <Slide.Slide key={s.id} id={s.id} currentSlideType={s.slydeType} onDeleteHandler={this.deleteSlide.bind(this)}/>
                 );
