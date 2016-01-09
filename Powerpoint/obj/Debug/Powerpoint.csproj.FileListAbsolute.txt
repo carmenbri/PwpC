@@ -1,0 +1,17 @@
+C:\Users\florin.caloieanu\Desktop\app\Powerpoint\Powerpoint\bin\Powerpoint.dll.config
+C:\Users\florin.caloieanu\Desktop\app\Powerpoint\Powerpoint\bin\Powerpoint.dll
+C:\Users\florin.caloieanu\Desktop\app\Powerpoint\Powerpoint\bin\Powerpoint.pdb
+C:\Users\florin.caloieanu\Desktop\app\Powerpoint\Powerpoint\obj\Debug\Powerpoint.csprojResolveAssemblyReference.cache
+C:\Users\florin.caloieanu\Desktop\app\Powerpoint\Powerpoint\obj\Debug\Powerpoint.dll
+C:\Users\florin.caloieanu\Desktop\app\Powerpoint\Powerpoint\obj\Debug\Powerpoint.pdb
+C:\Users\florin.caloieanu\Desktop\Powerpoint\Powerpoint\bin\Powerpoint.dll.config
+C:\Users\florin.caloieanu\Desktop\Powerpoint\Powerpoint\bin\Powerpoint.dll
+C:\Users\florin.caloieanu\Desktop\Powerpoint\Powerpoint\bin\Powerpoint.pdb
+C:\Users\florin.caloieanu\Desktop\Powerpoint\Powerpoint\obj\Debug\Powerpoint.csprojResolveAssemblyReference.cache
+C:\Users\florin.caloieanu\Desktop\Powerpoint\Powerpoint\obj\Debug\Powerpoint.dll
+C:\Users\florin.caloieanu\Desktop\Powerpoint\Powerpoint\obj\Debug\Powerpoint.pdb
+E:\Florin\Powerpoint\Powerpoint\bin\Powerpoint.dll.config
+E:\Florin\Powerpoint\Powerpoint\bin\Powerpoint.dll
+E:\Florin\Powerpoint\Powerpoint\bin\Powerpoint.pdb
+E:\Florin\Powerpoint\Powerpoint\obj\Debug\Powerpoint.dll
+E:\Florin\Powerpoint\Powerpoint\obj\Debug\Powerpoint.pdb
