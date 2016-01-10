@@ -4,7 +4,6 @@ import SlideTitle from 'SlideTitle';
 import SlideImg from 'SlideImg';
 import SlideText from 'SlideText';
 import Button from 'Button';
-import ButtonDelete from 'ButtonDelete';
 import SlideOptionEnum from 'slideOptionEnum'
 
 import SlideOption = SlideOptionEnum.SlideOption;
@@ -13,8 +12,8 @@ module Slide {
     export interface ISlideProps {
         key: string;
         id: string;
-        currentSlideType: number;
-        onDeleteHandler?: (id:string) => void;
+        slideType: number;
+        onSelectHandler: (id: string) => void;
     }
     export interface ISlideState {
       
@@ -25,34 +24,31 @@ module Slide {
             return this.renderSlide();
         }
 
-        private deleteSlide() {
-            this.props.onDeleteHandler(this.props.id);
+        private selectSlide() {
+            this.props.onSelectHandler(this.props.id);
         }
 
         private renderSlide(): JSX.Element {
-            switch (this.props.currentSlideType) {
+            switch (this.props.slideType) {
                 case SlideOption.SlideTitle:
                     return (
-                        <div>
-                           <SlideTitle.SlideTitle />
-                           <ButtonDelete.ButtonDelete onClickHandler={this.deleteSlide.bind(this)} name="Delete" />
+                        <div className="slide" onClick={this.selectSlide.bind(this)}>
+                           <div className="centeredTitle"></div>
                         </div>
                     );
                 case SlideOption.TitleText:
                     return (
-                        <div>
-                            <SlideTitle.SlideTitle />
-                            <SlideText.SlideText />
-                            <ButtonDelete.ButtonDelete onClickHandler={this.deleteSlide.bind(this)} name="Delete"/>
+                        <div className="slide" onClick={this.selectSlide.bind(this)}>
+                           <div className="title"></div>
+                           <div className="text"></div>
                         </div>
                     );
                 case SlideOption.TitleImg:
                     return (
-                        <div>
-                            <SlideTitle.SlideTitle />
-                            <SlideImg.SlideImg />
-                            <ButtonDelete.ButtonDelete onClickHandler={this.deleteSlide.bind(this) } name="Delete"/>
-                            </div>
+                        <div className="slide" onClick={this.selectSlide.bind(this)}>
+                           <div className="title"></div>
+                           <div className="img"></div>
+                         </div>
                     );
                 default:
                     throw ("Incorrect slide type");

@@ -9,13 +9,9 @@ var __extends = (this && this.__extends) || function (d, b) {
         var v = factory(require, exports); if (v !== undefined) module.exports = v;
     }
     else if (typeof define === 'function' && define.amd) {
-        define(["require", "exports", 'SlideTitle', 'SlideImg', 'SlideText', 'ButtonDelete', 'slideOptionEnum'], factory);
+        define(["require", "exports", 'slideOptionEnum'], factory);
     }
 })(function (require, exports) {
-    var SlideTitle_1 = require('SlideTitle');
-    var SlideImg_1 = require('SlideImg');
-    var SlideText_1 = require('SlideText');
-    var ButtonDelete_1 = require('ButtonDelete');
     var slideOptionEnum_1 = require('slideOptionEnum');
     var SlideOption = slideOptionEnum_1.default.SlideOption;
     var Slide;
@@ -28,17 +24,17 @@ var __extends = (this && this.__extends) || function (d, b) {
             Slide.prototype.render = function () {
                 return this.renderSlide();
             };
-            Slide.prototype.deleteSlide = function () {
-                this.props.onDeleteHandler(this.props.id);
+            Slide.prototype.selectSlide = function () {
+                this.props.onSelectHandler(this.props.id);
             };
             Slide.prototype.renderSlide = function () {
-                switch (this.props.currentSlideType) {
+                switch (this.props.slideType) {
                     case SlideOption.SlideTitle:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(ButtonDelete_1.default.ButtonDelete, {"onClickHandler": this.deleteSlide.bind(this), "name": "Delete"})));
+                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "centeredTitle"})));
                     case SlideOption.TitleText:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(SlideText_1.default.SlideText, null), React.createElement(ButtonDelete_1.default.ButtonDelete, {"onClickHandler": this.deleteSlide.bind(this), "name": "Delete"})));
+                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}), React.createElement("div", {"className": "text"})));
                     case SlideOption.TitleImg:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(SlideImg_1.default.SlideImg, null), React.createElement(ButtonDelete_1.default.ButtonDelete, {"onClickHandler": this.deleteSlide.bind(this), "name": "Delete"})));
+                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}), React.createElement("div", {"className": "img"})));
                     default:
                         throw ("Incorrect slide type");
                 }

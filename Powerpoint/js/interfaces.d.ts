@@ -1,5 +1,5 @@
 ﻿
 interface ISlide {
     id: string,
-    slydeType: number
+    slideType: number
 } 

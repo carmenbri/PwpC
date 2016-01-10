@@ -23,8 +23,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="js\ActiveSlide.tsx" />
     <TypeScriptCompile Include="js\App.tsx" />
-    <TypeScriptCompile Include="js\ButtonDelete.tsx" />
     <Content Include="index.html" />
     <Content Include="web.config" />
     <TypeScriptCompile Include="js\utils.ts" />

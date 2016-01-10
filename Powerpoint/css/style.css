@@ -1,1 +1,50 @@
-﻿
+﻿#app {
+	position: fixed;
+	height: 100%;
+	overflow: hidden;
+	right: 1%;
+	left: 1%;
+}
+
+.appFrame {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+}
+
+.menu {
+	position: absolute;
+	width: 100%;
+	border: 1px solid blue;
+	padding: 10px;
+}
+
+	.menu > div {
+		display: inline-block;
+	}
+
+.leftSlides {
+	width: 210px;
+	border: 1px solid #000;
+	position: absolute;
+	top: 60px;
+	bottom: 10px;
+	overflow-x: hidden;
+	left: 0;
+	overflow-y: auto;
+}
+
+.activeSlide {
+	width: calc( 100% - 225px);
+	border: 1px solid #000;
+	position: absolute;
+	left: 225px;
+	top: 60px;
+}
+
+.slide {
+	border: 1px solid red;
+	margin: 4px;
+	padding: 4px;
+	height: 100px;
+}

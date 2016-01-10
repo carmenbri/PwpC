@@ -20,3 +20,4 @@ E:\Florin\PwpC\Powerpoint\bin\Powerpoint.dll
 E:\Florin\PwpC\Powerpoint\bin\Powerpoint.pdb
 E:\Florin\PwpC\Powerpoint\obj\Debug\Powerpoint.dll
 E:\Florin\PwpC\Powerpoint\obj\Debug\Powerpoint.pdb
+E:\Florin\PwpC\Powerpoint\obj\Debug\Powerpoint.csprojResolveAssemblyReference.cache
