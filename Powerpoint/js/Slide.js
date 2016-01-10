@@ -32,9 +32,9 @@ var __extends = (this && this.__extends) || function (d, b) {
                     case SlideOption.SlideTitle:
                         return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title center"}, this.props.slideObj.title)));
                     case SlideOption.TitleText:
-                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}, this.props.slideObj.title), React.createElement("div", {"className": "text"})));
+                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}, this.props.slideObj.title), React.createElement("div", {"className": "text"}, this.props.slideObj.text)));
                     case SlideOption.TitleImg:
-                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}, this.props.slideObj.title), React.createElement("div", {"className": "img"})));
+                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}, this.props.slideObj.title), React.createElement("div", {"className": "img"}, this.props.slideObj.image)));
                     default:
                         throw ("Incorrect slide type");
                 }

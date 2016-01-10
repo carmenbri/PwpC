@@ -39,14 +39,14 @@ module Slide {
                     return (
                         <div className="slide" onClick={this.selectSlide.bind(this)}>
                            <div className="title">{this.props.slideObj.title}</div>
-                           <div className="text"></div>
+                           <div className="text">{this.props.slideObj.text}</div>
                         </div>
                     );
                 case SlideOption.TitleImg:
                     return (
                         <div className="slide" onClick={this.selectSlide.bind(this)}>
                            <div className="title">{this.props.slideObj.title}</div>
-                           <div className="img"></div>
+                           <div className="img">{this.props.slideObj.image}</div>
                          </div>
                     );
                 default:

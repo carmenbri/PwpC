@@ -30,11 +30,11 @@ var __extends = (this && this.__extends) || function (d, b) {
             ActiveSlide.prototype.renderSlide = function () {
                 switch (this.props.slideObj.slideType) {
                     case SlideOption.SlideTitle:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)})));
+                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, {"title": this.props.slideObj.title, "key": this.props.slideObj.id, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)})));
                     case SlideOption.TitleText:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)}), React.createElement(SlideText_1.default.SlideText, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)})));
+                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, {"title": this.props.slideObj.title, "key": this.props.slideObj.id, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)}), React.createElement(SlideText_1.default.SlideText, {"text": this.props.slideObj.text, "onTextKeyUpHandler": this.props.onTextKeyUpHandler.bind(this)})));
                     case SlideOption.TitleImg:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)}), React.createElement(SlideImg_1.default.SlideImg, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)})));
+                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, {"title": this.props.slideObj.title, "key": this.props.slideObj.id, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)}), React.createElement(SlideImg_1.default.SlideImg, {"image": this.props.slideObj.image, "onImageUpload": this.props.onImageUpload.bind(this)})));
                     default:
                         throw ("Incorrect slide type");
                 }

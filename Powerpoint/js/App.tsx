@@ -27,7 +27,9 @@ module App {
                 localStorageList=localStorageList.concat({
                     id: Utils.Utils.uuid(),
                     slideType: SlideOption.SlideTitle,
-                    title: 'Click to add title'
+                    title: '',
+                    text: '',
+                    image:''
                 })
             }
 
@@ -41,7 +43,9 @@ module App {
             var modifiedList = this.state.slideList.concat({
                 id: Utils.Utils.uuid(),
                 slideType: slideType,
-                title: 'Click to add title'
+                title: '',
+                text: '',
+                image:''
             });
             this.setState({
                 slideList: modifiedList,
@@ -70,7 +74,6 @@ module App {
             Utils.Utils.store("PowerPointLS", modifiedList);
         }
         public selectSlide(id: string) {
-            console.log(id);
             var allSlide = this.state.slideList;
             var selectedSlide = this.state.slideList.filter(function (obj) {
                 return obj.id == id;
@@ -82,17 +85,36 @@ module App {
             });
         }
         public changeTitle(title: string) {
+            var allSlide = this.state.slideList;
             var activeId = this.state.activeSlide.id;
             var selectedSlide = this.state.slideList.filter(function (obj) {
                 return obj.id == activeId;
             })[0];
             selectedSlide.title = title;
-
+            Utils.Utils.store("PowerPointLS", allSlide);
             this.forceUpdate();
         }
-
+        public changeText(text: string) {
+            var allSlide = this.state.slideList;
+            var activeId = this.state.activeSlide.id;
+            var selectedSlide = this.state.slideList.filter(function (obj) {
+                return obj.id == activeId;
+            })[0];
+            selectedSlide.text = text;
+            Utils.Utils.store("PowerPointLS", allSlide);
+            this.forceUpdate();
+        }
+        public changeImg(image: string) {
+            var allSlide = this.state.slideList;
+            var activeId = this.state.activeSlide.id;
+            var selectedSlide = this.state.slideList.filter(function (obj) {
+                return obj.id == activeId;
+            })[0];
+            selectedSlide.image = image;
+            Utils.Utils.store("PowerPointLS", allSlide);
+            this.forceUpdate();
+        }
         public render(): JSX.Element {
-            console.log(this.state.activeSlide.title);
             var slideItems = this.state.slideList.map(function (s) {
                 return (
                     <Slide.Slide key={s.id}  slideObj={s} onSelectHandler={this.selectSlide.bind(this) }/>
@@ -110,7 +132,12 @@ module App {
                       {slideItems}
                     </div>
                     <div className="activeSlide">
-                      <ActiveSlide.ActiveSlide slideObj={this.state.activeSlide} onTitleKeyUpHandler={this.changeTitle.bind(this) } />
+                      <ActiveSlide.ActiveSlide
+                            slideObj={this.state.activeSlide}
+                            onTitleKeyUpHandler={this.changeTitle.bind(this) }
+                            onTextKeyUpHandler={this.changeText.bind(this) }
+                            onImageUpload={this.changeImg.bind(this) }
+                            />
                     </div>
                 </div>
             );

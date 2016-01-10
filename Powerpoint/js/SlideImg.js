@@ -9,30 +9,25 @@ var __extends = (this && this.__extends) || function (d, b) {
         var v = factory(require, exports); if (v !== undefined) module.exports = v;
     }
     else if (typeof define === 'function' && define.amd) {
-        define(["require", "exports", 'SlideTitle'], factory);
+        define(["require", "exports"], factory);
     }
 })(function (require, exports) {
-    var SlideTitle_1 = require('SlideTitle');
     var SlideImg;
     (function (SlideImg_1) {
         var SlideImg = (function (_super) {
             __extends(SlideImg, _super);
             function SlideImg() {
                 _super.apply(this, arguments);
-                this.state = {
-                    value: "Click to add image",
-                    text: this.props.initialTitle
-                };
             }
             SlideImg.prototype.render = function () {
                 var _this = this;
-                return (React.createElement("div", null, React.createElement("input", {"type": "file", "onChange": function (e) { return _this.setState({
-                    value: e.target.value,
-                    text: _this.state.text
-                }); }, "defaultValue": this.state.value})));
+                return (React.createElement("div", null, React.createElement("input", {"type": "file", "accept": "image/*", "defaultValue": this.props.image, "onChange": function (e) {
+                    var imagePath = e.target.value;
+                    _this.props.onImageUpload(imagePath);
+                }})));
             };
             return SlideImg;
-        })(SlideTitle_1.default.SlideTitle);
+        })(React.Component);
         SlideImg_1.SlideImg = SlideImg;
     })(SlideImg || (SlideImg = {}));
     Object.defineProperty(exports, "__esModule", { value: true });

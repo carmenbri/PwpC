@@ -29,7 +29,9 @@ var __extends = (this && this.__extends) || function (d, b) {
                     localStorageList = localStorageList.concat({
                         id: utils_1.default.Utils.uuid(),
                         slideType: SlideOption.SlideTitle,
-                        title: 'Click to add title'
+                        title: '',
+                        text: '',
+                        image: ''
                     });
                 }
                 this.state = {
@@ -41,7 +43,9 @@ var __extends = (this && this.__extends) || function (d, b) {
                 var modifiedList = this.state.slideList.concat({
                     id: utils_1.default.Utils.uuid(),
                     slideType: slideType,
-                    title: 'Click to add title'
+                    title: '',
+                    text: '',
+                    image: ''
                 });
                 this.setState({
                     slideList: modifiedList,
@@ -70,7 +74,6 @@ var __extends = (this && this.__extends) || function (d, b) {
                 utils_1.default.Utils.store("PowerPointLS", modifiedList);
             };
             App.prototype.selectSlide = function (id) {
-                console.log(id);
                 var allSlide = this.state.slideList;
                 var selectedSlide = this.state.slideList.filter(function (obj) {
                     return obj.id == id;
@@ -81,19 +84,40 @@ var __extends = (this && this.__extends) || function (d, b) {
                 });
             };
             App.prototype.changeTitle = function (title) {
+                var allSlide = this.state.slideList;
                 var activeId = this.state.activeSlide.id;
                 var selectedSlide = this.state.slideList.filter(function (obj) {
                     return obj.id == activeId;
                 })[0];
                 selectedSlide.title = title;
+                utils_1.default.Utils.store("PowerPointLS", allSlide);
+                this.forceUpdate();
+            };
+            App.prototype.changeText = function (text) {
+                var allSlide = this.state.slideList;
+                var activeId = this.state.activeSlide.id;
+                var selectedSlide = this.state.slideList.filter(function (obj) {
+                    return obj.id == activeId;
+                })[0];
+                selectedSlide.text = text;
+                utils_1.default.Utils.store("PowerPointLS", allSlide);
+                this.forceUpdate();
+            };
+            App.prototype.changeImg = function (image) {
+                var allSlide = this.state.slideList;
+                var activeId = this.state.activeSlide.id;
+                var selectedSlide = this.state.slideList.filter(function (obj) {
+                    return obj.id == activeId;
+                })[0];
+                selectedSlide.image = image;
+                utils_1.default.Utils.store("PowerPointLS", allSlide);
                 this.forceUpdate();
             };
             App.prototype.render = function () {
-                console.log(this.state.activeSlide.title);
                 var slideItems = this.state.slideList.map(function (s) {
                     return (React.createElement(Slide_1.default.Slide, {"key": s.id, "slideObj": s, "onSelectHandler": this.selectSlide.bind(this)}));
                 }, this);
-                return (React.createElement("div", {"className": "appFrame"}, React.createElement("div", {"className": "menu"}, React.createElement(Button_1.default.Button, {"name": "Add centered title", "onClickHandler": this.addTitleSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Add title and text", "onClickHandler": this.addTextSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Add title and image", "onClickHandler": this.addImgSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Delete", "onClickHandler": this.deleteSlide.bind(this)})), React.createElement("div", {"className": "leftSlides"}, slideItems), React.createElement("div", {"className": "activeSlide"}, React.createElement(ActiveSlide_1.default.ActiveSlide, {"slideObj": this.state.activeSlide, "onTitleKeyUpHandler": this.changeTitle.bind(this)}))));
+                return (React.createElement("div", {"className": "appFrame"}, React.createElement("div", {"className": "menu"}, React.createElement(Button_1.default.Button, {"name": "Add centered title", "onClickHandler": this.addTitleSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Add title and text", "onClickHandler": this.addTextSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Add title and image", "onClickHandler": this.addImgSlide.bind(this)}), React.createElement(Button_1.default.Button, {"name": "Delete", "onClickHandler": this.deleteSlide.bind(this)})), React.createElement("div", {"className": "leftSlides"}, slideItems), React.createElement("div", {"className": "activeSlide"}, React.createElement(ActiveSlide_1.default.ActiveSlide, {"slideObj": this.state.activeSlide, "onTitleKeyUpHandler": this.changeTitle.bind(this), "onTextKeyUpHandler": this.changeText.bind(this), "onImageUpload": this.changeImg.bind(this)}))));
             };
             return App;
         })(React.Component);

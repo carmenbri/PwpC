@@ -2,26 +2,26 @@
 
 import SlideTitle from 'SlideTitle';
 module SlideImg {
-    export interface SlideImgProps extends SlideTitle.SlideTitleProps {
+    export interface SlideImgProps {
+        image: string;
+        onImageUpload: (image: string) => void;
     }
-    interface SlideImgState extends SlideTitle.SlideTitleState {
-        value: string;
+    interface SlideImgState {
     }
 
-    export class SlideImg extends SlideTitle.SlideTitle<SlideImgProps, SlideImgState> {
-        state = {
-            value: "Click to add image",
-            text: this.props.initialTitle
-        };
+    export class SlideImg extends React.Component<SlideImgProps, SlideImgState> {
+
         public render(): JSX.Element {
             return (
-             <div>
-             <input type="file"
-                 onChange={(e) => this.setState({
-                     value: (e.target as HTMLInputElement).value,
-                     text: (this.state as SlideImgState).text
-                 } as SlideImgState) }
-                 defaultValue={(this.state as SlideImgState).value} />
+                <div>
+                <input type="file" accept="image/*"
+                    defaultValue= {this.props.image}
+                    onChange={(e) => {
+                        var imagePath = (e.target as HTMLInputElement).value;
+                        this.props.onImageUpload(imagePath);
+                    }
+                    }
+                    />
                     </div>
             );
         }

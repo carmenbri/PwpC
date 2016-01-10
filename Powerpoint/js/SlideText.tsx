@@ -2,27 +2,27 @@
 
 import SlideTitle from 'SlideTitle';
 module SlideText {
-    export interface SlideTextProps extends SlideTitle.SlideTitleProps {
+    export interface SlideTextProps  {
+        text: string;
+        onTextKeyUpHandler: (text: string) => void;
     }
-    interface SlideTextState extends SlideTitle.SlideTitleState {
-        value: string;
+    export interface SlideTextState  {
     }
 
-    export class SlideText extends SlideTitle.SlideTitle<SlideTextProps, SlideTextState> {
-        state = {
-            value: "Click to add text",
-            text: this.props.initialTitle
-        };
+    export class SlideText extends React.Component<SlideTextProps, SlideTextState>{
         public render(): JSX.Element {
             return (
                 <div>
-             <textarea
-                        onChange={(e) => this.setState({
-                            value: (e.target as HTMLTextAreaElement).value,
-                            text: (this.state as SlideTextState).text
-                        } as SlideTextState) }
-                     defaultValue={(this.state as SlideTextState).value} />
-                    </div>
+                    <textarea
+                        placeholder="Click to add text"
+                        onKeyUp={(e) => {
+                            var textareaText = (e.target as HTMLTextAreaElement).value;
+                            this.props.onTextKeyUpHandler(textareaText);
+                        }
+                        }>
+                       {this.props.text}
+                    </textarea>
+                </div>
             );
         }
     }

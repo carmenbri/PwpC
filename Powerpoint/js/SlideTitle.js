@@ -18,17 +18,12 @@ var __extends = (this && this.__extends) || function (d, b) {
             __extends(SlideTitle, _super);
             function SlideTitle() {
                 _super.apply(this, arguments);
-                this.state = {
-                    text: this.props.initialTitle
-                };
             }
             SlideTitle.prototype.render = function () {
                 var _this = this;
-                return (React.createElement("div", null, React.createElement("input", {"defaultValue": this.state.text, "onClick": function (e) { if (e.target.value == 'Click to add title')
-                    _this.setState({ text: "" }); }, "onKeyUp": function (e) {
-                    var inputText = e.target.value;
-                    _this.setState({ text: inputText });
-                    _this.props.onTitleKeyUpHandler(inputText);
+                return (React.createElement("div", null, React.createElement("input", {"defaultValue": this.props.title, "placeholder": "Click to add title", "onKeyUp": function (e) {
+                    var titleText = e.target.value;
+                    _this.props.onTitleKeyUpHandler(titleText);
                 }})));
             };
             return SlideTitle;
