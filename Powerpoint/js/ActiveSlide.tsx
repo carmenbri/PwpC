@@ -9,8 +9,8 @@ import SlideOption = SlideOptionEnum.SlideOption;
 
 module ActiveSlide {
     export interface IActiveSlideProps {
-        id: string;
-        slideType: number;
+        slideObj: ISlide;
+        onTitleKeyUpHandler: (title: string) => void;
     }
     export interface IActiveSlideState {
 
@@ -22,25 +22,25 @@ module ActiveSlide {
         }
 
         private renderSlide(): JSX.Element {
-            switch (this.props.slideType) {
+            switch (this.props.slideObj.slideType) {
                 case SlideOption.SlideTitle:
                     return (
                         <div>
-                           <SlideTitle.SlideTitle />
+                           <SlideTitle.SlideTitle key={this.props.slideObj.id} initialTitle={this.props.slideObj.title} onTitleKeyUpHandler={this.props.onTitleKeyUpHandler.bind(this)}/>
                         </div>
                     );
                 case SlideOption.TitleText:
                     return (
                         <div>
-                            <SlideTitle.SlideTitle />
-                            <SlideText.SlideText />
+                            <SlideTitle.SlideTitle key={this.props.slideObj.id} initialTitle={this.props.slideObj.title} onTitleKeyUpHandler={this.props.onTitleKeyUpHandler.bind(this) }/>
+                            <SlideText.SlideText key={this.props.slideObj.id} initialTitle={this.props.slideObj.title} onTitleKeyUpHandler={this.props.onTitleKeyUpHandler.bind(this) }/>
                         </div>
                     );
                 case SlideOption.TitleImg:
                     return (
                         <div>
-                            <SlideTitle.SlideTitle />
-                            <SlideImg.SlideImg />
+                            <SlideTitle.SlideTitle key={this.props.slideObj.id} initialTitle={this.props.slideObj.title} onTitleKeyUpHandler={this.props.onTitleKeyUpHandler.bind(this) }/>
+                            <SlideImg.SlideImg key={this.props.slideObj.id} initialTitle={this.props.slideObj.title} onTitleKeyUpHandler={this.props.onTitleKeyUpHandler.bind(this) }/>
                         </div>
                     );
                 default:

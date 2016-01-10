@@ -11,8 +11,7 @@ import SlideOption = SlideOptionEnum.SlideOption;
 module Slide {
     export interface ISlideProps {
         key: string;
-        id: string;
-        slideType: number;
+        slideObj: ISlide;
         onSelectHandler: (id: string) => void;
     }
     export interface ISlideState {
@@ -25,28 +24,28 @@ module Slide {
         }
 
         private selectSlide() {
-            this.props.onSelectHandler(this.props.id);
+            this.props.onSelectHandler(this.props.slideObj.id);
         }
 
         private renderSlide(): JSX.Element {
-            switch (this.props.slideType) {
+            switch (this.props.slideObj.slideType) {
                 case SlideOption.SlideTitle:
                     return (
                         <div className="slide" onClick={this.selectSlide.bind(this)}>
-                           <div className="centeredTitle"></div>
+                           <div className="title center">{this.props.slideObj.title}</div>
                         </div>
                     );
                 case SlideOption.TitleText:
                     return (
                         <div className="slide" onClick={this.selectSlide.bind(this)}>
-                           <div className="title"></div>
+                           <div className="title">{this.props.slideObj.title}</div>
                            <div className="text"></div>
                         </div>
                     );
                 case SlideOption.TitleImg:
                     return (
                         <div className="slide" onClick={this.selectSlide.bind(this)}>
-                           <div className="title"></div>
+                           <div className="title">{this.props.slideObj.title}</div>
                            <div className="img"></div>
                          </div>
                     );

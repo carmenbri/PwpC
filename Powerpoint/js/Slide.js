@@ -25,16 +25,16 @@ var __extends = (this && this.__extends) || function (d, b) {
                 return this.renderSlide();
             };
             Slide.prototype.selectSlide = function () {
-                this.props.onSelectHandler(this.props.id);
+                this.props.onSelectHandler(this.props.slideObj.id);
             };
             Slide.prototype.renderSlide = function () {
-                switch (this.props.slideType) {
+                switch (this.props.slideObj.slideType) {
                     case SlideOption.SlideTitle:
-                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "centeredTitle"})));
+                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title center"}, this.props.slideObj.title)));
                     case SlideOption.TitleText:
-                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}), React.createElement("div", {"className": "text"})));
+                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}, this.props.slideObj.title), React.createElement("div", {"className": "text"})));
                     case SlideOption.TitleImg:
-                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}), React.createElement("div", {"className": "img"})));
+                        return (React.createElement("div", {"className": "slide", "onClick": this.selectSlide.bind(this)}, React.createElement("div", {"className": "title"}, this.props.slideObj.title), React.createElement("div", {"className": "img"})));
                     default:
                         throw ("Incorrect slide type");
                 }

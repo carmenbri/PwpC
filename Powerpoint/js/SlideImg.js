@@ -21,7 +21,7 @@ var __extends = (this && this.__extends) || function (d, b) {
                 _super.apply(this, arguments);
                 this.state = {
                     value: "Click to add image",
-                    text: ""
+                    text: this.props.initialTitle
                 };
             }
             SlideImg.prototype.render = function () {

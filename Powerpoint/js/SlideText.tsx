@@ -3,7 +3,6 @@
 import SlideTitle from 'SlideTitle';
 module SlideText {
     export interface SlideTextProps extends SlideTitle.SlideTitleProps {
-        text?: string;
     }
     interface SlideTextState extends SlideTitle.SlideTitleState {
         value: string;
@@ -12,7 +11,7 @@ module SlideText {
     export class SlideText extends SlideTitle.SlideTitle<SlideTextProps, SlideTextState> {
         state = {
             value: "Click to add text",
-            text: ""
+            text: this.props.initialTitle
         };
         public render(): JSX.Element {
             return (

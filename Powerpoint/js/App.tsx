@@ -26,7 +26,8 @@ module App {
             {
                 localStorageList=localStorageList.concat({
                     id: Utils.Utils.uuid(),
-                    slideType: SlideOption.SlideTitle
+                    slideType: SlideOption.SlideTitle,
+                    title: 'Click to add title'
                 })
             }
 
@@ -39,7 +40,8 @@ module App {
         public addSlide(slideType: SlideOption) {
             var modifiedList = this.state.slideList.concat({
                 id: Utils.Utils.uuid(),
-                slideType: slideType
+                slideType: slideType,
+                title: 'Click to add title'
             });
             this.setState({
                 slideList: modifiedList,
@@ -65,8 +67,10 @@ module App {
                 slideList: modifiedList,
                 activeSlide: modifiedList[0]
             });
+            Utils.Utils.store("PowerPointLS", modifiedList);
         }
         public selectSlide(id: string) {
+            console.log(id);
             var allSlide = this.state.slideList;
             var selectedSlide = this.state.slideList.filter(function (obj) {
                 return obj.id == id;
@@ -77,11 +81,21 @@ module App {
                 activeSlide: selectedSlide
             });
         }
+        public changeTitle(title: string) {
+            var activeId = this.state.activeSlide.id;
+            var selectedSlide = this.state.slideList.filter(function (obj) {
+                return obj.id == activeId;
+            })[0];
+            selectedSlide.title = title;
+
+            this.forceUpdate();
+        }
 
         public render(): JSX.Element {
+            console.log(this.state.activeSlide.title);
             var slideItems = this.state.slideList.map(function (s) {
                 return (
-                    <Slide.Slide key={s.id} id={s.id} slideType={s.slideType} onSelectHandler={this.selectSlide.bind(this) }/>
+                    <Slide.Slide key={s.id}  slideObj={s} onSelectHandler={this.selectSlide.bind(this) }/>
                 );
             }, this);
             return (
@@ -96,7 +110,7 @@ module App {
                       {slideItems}
                     </div>
                     <div className="activeSlide">
-                      <ActiveSlide.ActiveSlide id={this.state.activeSlide.id} slideType={this.state.activeSlide.slideType}/>
+                      <ActiveSlide.ActiveSlide slideObj={this.state.activeSlide} onTitleKeyUpHandler={this.changeTitle.bind(this) } />
                     </div>
                 </div>
             );

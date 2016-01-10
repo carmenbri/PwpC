@@ -1,5 +1,8 @@
 ﻿
 interface ISlide {
     id: string,
-    slideType: number
+    slideType: number,
+    title: string,
+    text?: string,
+    image?:string
 } 

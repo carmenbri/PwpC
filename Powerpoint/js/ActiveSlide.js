@@ -28,13 +28,13 @@ var __extends = (this && this.__extends) || function (d, b) {
                 return this.renderSlide();
             };
             ActiveSlide.prototype.renderSlide = function () {
-                switch (this.props.slideType) {
+                switch (this.props.slideObj.slideType) {
                     case SlideOption.SlideTitle:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null)));
+                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)})));
                     case SlideOption.TitleText:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(SlideText_1.default.SlideText, null)));
+                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)}), React.createElement(SlideText_1.default.SlideText, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)})));
                     case SlideOption.TitleImg:
-                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, null), React.createElement(SlideImg_1.default.SlideImg, null)));
+                        return (React.createElement("div", null, React.createElement(SlideTitle_1.default.SlideTitle, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)}), React.createElement(SlideImg_1.default.SlideImg, {"key": this.props.slideObj.id, "initialTitle": this.props.slideObj.title, "onTitleKeyUpHandler": this.props.onTitleKeyUpHandler.bind(this)})));
                     default:
                         throw ("Incorrect slide type");
                 }
